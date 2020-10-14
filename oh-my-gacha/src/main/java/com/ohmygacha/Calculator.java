@@ -18,5 +18,12 @@ public class Calculator {
 		return attempts;
 	}
 	
+	//Computes the expected minimum cost of obtaining a specific loot drop.
+	double totalCost(int attempts, double moneyIn, int currencyOut, int pullCost) {
+		double conversionRate = moneyIn / currencyOut;
+		double totalCost = Math.ceil(conversionRate * attempts * pullCost);
+		return totalCost;
+	}
+	
 	
 }

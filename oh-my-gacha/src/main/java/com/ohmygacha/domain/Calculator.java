@@ -7,7 +7,7 @@ public class Calculator {
 	private double moneyIn;
 	private int currencyOut;
 	private int attempts;
-	private double totalCost;
+	private int totalCost;
 	
 	public double getProbability() {
 		return probability;
@@ -49,11 +49,11 @@ public class Calculator {
 		this.pullCost = pullCost;
 	}
 
-	public double getTotalCost() {
+	public int getTotalCost() {
 		return totalCost;
 	}
 
-	public void setTotalCost(double totalCost) {
+	public void setTotalCost(int totalCost) {
 		this.totalCost = totalCost;
 	}
 
@@ -74,10 +74,10 @@ public class Calculator {
 	}
 	
 	//Computes the expected minimum cost of obtaining a specific loot drop.
-	public double totalCost(int attempts, double moneyIn, int currencyOut, int pullCost) {
+	public int totalCost(int attempts, double moneyIn, int currencyOut, int pullCost) {
 		double conversionRate = moneyIn / currencyOut;
 		double totalCost = Math.ceil(conversionRate * attempts * pullCost);
-		return totalCost;
+		return (int) totalCost;
 	}
 
 	@Override

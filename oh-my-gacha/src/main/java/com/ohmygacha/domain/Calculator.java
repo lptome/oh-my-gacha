@@ -1,16 +1,29 @@
 package com.ohmygacha.domain;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.PositiveOrZero;
 
 public class Calculator {
 	
-	//@DecimalMin(value="0.0", inclusive = false)
+	@DecimalMin(value="0.0", inclusive = false, message = "Probability must be between 0 and 1")
+	@DecimalMax(value="1.0", inclusive = true, message = "Probability must be between 0 and 1")
 	private BigDecimal probability;	
-	private Integer pullCost;
+	@PositiveOrZero(message = "Must be greater than or equal to zero")
+	@Digits(integer = 9, fraction = 0, message="Must be a positive integer")
+	private BigInteger pullCost;
+	@PositiveOrZero(message = "Must be greater than or equal to zero")
 	private BigDecimal moneyIn;
-	private Integer currencyOut;
-	private Integer attempts;
-	private Integer totalCost;
+	@PositiveOrZero(message = "Must be greater than or equal to zero")
+	@Digits(integer = 9, fraction = 0, message="Must be a positive integer")
+	private BigInteger currencyOut;
+	private double conversionRate;
+	private int attempts;
+	private BigInteger totalCost;
 	
 	
 	public BigDecimal getProbability() {
@@ -21,11 +34,11 @@ public class Calculator {
 		this.probability = probability;
 	}
 
-	public Integer getPullCost() {
+	public BigInteger getPullCost() {
 		return pullCost;
 	}
 
-	public void setPullCost(Integer pullCost) {
+	public void setPullCost(BigInteger pullCost) {
 		this.pullCost = pullCost;
 	}
 
@@ -37,28 +50,36 @@ public class Calculator {
 		this.moneyIn = moneyIn;
 	}
 
-	public Integer getCurrencyOut() {
+	public BigInteger getCurrencyOut() {
 		return currencyOut;
 	}
 
-	public void setCurrencyOut(Integer currencyOut) {
+	public void setCurrencyOut(BigInteger currencyOut) {
 		this.currencyOut = currencyOut;
 	}
 
-	public Integer getAttempts() {
+	public int getAttempts() {
 		return attempts;
 	}
 
-	public void setAttempts(Integer attempts) {
+	public void setAttempts(int attempts) {
 		this.attempts = attempts;
 	}
 
-	public Integer getTotalCost() {
+	public BigInteger getTotalCost() {
 		return totalCost;
 	}
 
-	public void setTotalCost(Integer totalCost) {
+	public void setTotalCost(BigInteger totalCost) {
 		this.totalCost = totalCost;
+	}
+	
+	public double getConversionRate() {
+		return conversionRate;
+	}
+
+	public void setConversionRate(double conversionRate) {
+		this.conversionRate = conversionRate;
 	}
 
 	/**this function returns the number of attempts after which the probability 
@@ -80,11 +101,13 @@ public class Calculator {
 	}
 	
 	//Computes the expected minimum cost of obtaining a specific loot drop.
-	public int totalCost(int attempts, BigDecimal moneyIn, Integer currencyOut, Integer pullCost) {
+	public BigInteger totalCost(int attempts, BigDecimal moneyIn, BigInteger currencyOut, BigInteger pullCost) {
 		double moneyInTemp = moneyIn.doubleValue();
-		double conversionRate = moneyInTemp / currencyOut;
-		double totalCost = Math.ceil(conversionRate * attempts * pullCost);
-		return (int) totalCost;
+		int currencyTemp = currencyOut.intValue();
+		int pullTemp = pullCost.intValue();
+		conversionRate = moneyInTemp / currencyTemp;
+		double totalCost = Math.ceil(conversionRate * attempts * pullTemp);
+		return BigInteger.valueOf((long) totalCost);
 	}
 
 	@Override

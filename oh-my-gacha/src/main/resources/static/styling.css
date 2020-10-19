@@ -1,0 +1,109 @@
+@charset "ISO-8859-1";
+
+/* || Headings */
+:is( h1, h2, h3, h4, h5, h6) {
+	color: white;
+}
+
+#back {
+	margin-top: 2em;
+}
+
+#banner {
+	margin: 0;
+	width: 100%;
+	overflow-x: hidden;
+	padding: 3em;
+	background-color: #3d3b3b;
+	border-bottom: 2px solid black; 
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+#banner h3 {
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.blockquote {
+	text-align: justify;
+	font-style: italic;
+	font-size: 1em;
+}
+
+.blockquote-footer {
+	color: #b8b2b2;
+	float: right;
+}
+
+hr {
+	background-color: white;
+}
+
+body {
+	background-color: #292828;
+}
+
+.row span {
+	margin-top: 2em;
+}
+
+.input-group-prepend span {
+	margin-top: 0;
+}
+
+.card {
+	color: white;
+	border: 0;
+}
+
+.card-header {
+	background-color: #696665;
+}
+
+.card-body {
+	text-align: left;
+	background-color: #524f4f;
+}
+
+.card-body span {
+	font-weight: bold;
+}
+
+.popover {
+	color: black;
+}
+
+.popover-header {
+	color: inherit;
+}
+
+span {
+	color: white;
+}
+
+.label {
+	font-size: 1em;
+	color: white;
+}
+
+.fas {
+	color: #007bff;
+}
+
+.fas:hover {
+	color: #0069d9;
+}
+
+.row {
+	text-align: center;
+	justify-content: center;
+}
+
+.form-group.row {
+	justify-content: center;
+	margin-top: 3em;
+}

@@ -89,7 +89,7 @@ public class Calculator {
 	**/
 	public int numberOfTrials(BigDecimal probability) {
 		int attempts;
-		double threshold = 0.00001;
+		double threshold = 0.0001;
 		double temp = probability.doubleValue();
 		
 		if (temp == 1) {	//log(0) is undefined so return 1 if probability is 1

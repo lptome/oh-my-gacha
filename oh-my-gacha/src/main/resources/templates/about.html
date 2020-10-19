@@ -2,9 +2,100 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>About Oh My Gacha</title>
+<title>About this tool</title>
+<script th:replace="fragments/header :: headElements"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#back").click(function() {
+			window.location.href = '/';
+		});
+	});
+</script>
 </head>
 <body>
-
+   <div class="container">
+      <div class="row" style="justify-content: center; margin-top: 3em">
+         <h2>About this tool</h2>
+      </div>
+      <div class="row">
+         <div class="col col-12">
+            <div class="card" style="margin-top: 3em">
+               <div class="card-header">
+                  <h5>What is gacha?</h5>
+               </div>
+               <div class="card-body">
+                  <blockquote class="blockquote">
+                     <p>"Gacha games are video games that implement
+                        the gacha (capsule-toy vending machine)
+                        mechanic. This is somewhat similar to loot
+                        boxes, inducing players to spend in-game
+                        currency to receive a random virtual item. Most
+                        of these games are free-to-play mobile games,
+                        where the gacha serves as an incentive to spend
+                        real-world money."</p>
+                     <footer class="blockquote-footer">
+                        <cite>Wikipedia</cite>
+                     </footer>
+                  </blockquote>
+               </div>
+            </div>
+         </div>
+         <div class="col col-12">
+            <div class="card" style="margin-top: 3em">
+               <div class="card-header">
+                  <h5>How to use Oh My Gacha!</h5>
+               </div>
+               <div class="card-body">
+                  <p>This tool allows you to view how much money you
+                     could potentially waste chasing after an item in a
+                     gacha game. Simply:
+                  <ol>
+                     <li>Enter the probability of obtaining your
+                        desired item, from 0 to 1, e.g. 5% -> 0.05.
+                     <li>Insert the cost of performing a single
+                        summon within the game, using the in-game
+                        currency.
+                     <li>Consult the game's shop and determine how
+                        much currency their purchase options will give
+                        you, e.g. £10.99 for 2000 tokens.
+                     <li>Press the button to view your results!
+                  </ol>
+                  <span style="font-weight: normal">NB: This tool assumes GBP is the currency used
+                        for in-app purchases, but the results for any
+                        decimal currency ($, €) will be the same.</span>
+               </div>
+            </div>
+         </div>
+         <div class="col col-12">
+            <div class="card" style="margin-top: 3em">
+               <div class="card-header">
+                  <h5>Something to keep in mind</h5>
+               </div>
+               <div class="card-body">
+                  <p>
+                     This tool is not intended to provide accurate odds
+                     of obtaining specific gacha items. Its purpose is
+                     to tell users how much money they could <span>potentially</span>
+                     end up spending chasing after an item. Therefore,
+                     please note that:
+                  <ul>
+                     <li>The "total number of pulls" obtained from
+                        the calculation is in no way realistic. The
+                        number is merely an estimate of how many
+                        attempts you would need to reach an almost
+                        certain chance of getting your desired item <span>at
+                           least once</span>. This means that it represents the
+                        absolute<span> worst case scenario</span>, and
+                        the actual number of tries will likely be much
+                        lower.
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <button class="btn btn-primary" id="back">Back</button>
+      </div>
+   </div>
 </body>
 </html>

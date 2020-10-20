@@ -115,7 +115,7 @@
                   th:text="${calculator.attempts}"></span> pulls.
             <hr>
             <p>
-               At a conversion rate of approximately<span
+               At a conversion rate of approximately <span
                   th:if="${calculator.conversionRate < 1}"
                   th:text="${#numbers.formatDecimal(calculator.conversionRate, 1, 'COMMA', 6, 'POINT')}"></span>
                <span th:if="${calculator.conversionRate > 1}"

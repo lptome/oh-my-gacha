@@ -16,10 +16,10 @@ class OhMyGachaApplicationTests {
 	@Test
 	void numberOfTrialsTest() {
 		var calc = new Calculator();
-		assertEquals(225, calc.numberOfTrials(new BigDecimal("0.05")),
-				"For 0.05 probability of a," + "p of a occuring at least once approaches 1 at 225 trials");
-		assertEquals(83, calc.numberOfTrials(new BigDecimal("0.13")),
-				"For 0.13 probability of a," + "p of a occuring at least once approaches 1 at 83 trials");
+		assertEquals(180, calc.numberOfTrials(new BigDecimal("0.05")),
+				"For 0.05 probability of a," + "p of a occuring at least once approaches 1 at 180 trials");
+		assertEquals(67, calc.numberOfTrials(new BigDecimal("0.13")),
+				"For 0.13 probability of a," + "p of a occuring at least once approaches 1 at 67 trials");
 		assertEquals(1, calc.numberOfTrials(new BigDecimal("1.0")),
 				"For 1.0 probability of a," + "p of a occuring at least once approaches 1 after 1 trial.");
 

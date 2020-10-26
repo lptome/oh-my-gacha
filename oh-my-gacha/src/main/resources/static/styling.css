@@ -23,7 +23,15 @@
 }
 
 #banner h3 {
+	color: white;
 	font-size: 3em;
+	font-weight: bold;
+}
+
+#banner-about h2 {
+	margin-top: 2em;
+	color: white;
+	font-size: 2em;
 	font-weight: bold;
 }
 

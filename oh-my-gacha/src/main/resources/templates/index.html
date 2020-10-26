@@ -2,14 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script th:replace="fragments/header :: headElements"></script>
 <script>
+
+	//Popover
 	$(function() {
 		$('[data-toggle="popover"]').popover()
 	});
-</script>
 
-<script type="text/javascript">
+	$('.popover-dismiss').popover({
+		trigger : 'focus'
+	});
+	
+	
 	$(function() {
 		$("#about").click(function() {
 			window.location.href = '/about';
@@ -42,17 +48,18 @@
                   class="form-control" required placeholder="0.0"
                   style="text-align: center">
             </div>
-            <span class="alert alert-danger"
+            <div class="alert alert-danger"
                th:if="${#fields.hasErrors('calculator.probability')}"
-               th:errors="*{calculator.probability}"></span>
+               th:errors="*{calculator.probability}"></div>
          </div>
 
          <!--       Cost per pull -->
          <div class="form-group row">
             <div class="col-6 col-md-4 col-lg-3">
-               <label class="label">Cost per pull</label> <a
+               <label class="label">Cost per pull</label> <a tabindex="0"
                   data-toggle="popover" title="What does this mean?"
                   data-content="Enter the cost of 1 pull/summon, using the in-game currency."
+                  data-trigger="focus"
                   class="btn fas fa-question-circle"
                   style="margin-left: 0.5em"></a>
             </div>
@@ -61,9 +68,9 @@
                   class="form-control" required placeholder="0"
                   style="text-align: center">
             </div>
-            <span class="alert alert-danger"
+            <div class="alert alert-danger"
                th:if="${#fields.hasErrors('calculator.pullCost')}"
-               th:errors="*{calculator.pullCost}"></span>
+               th:errors="*{calculator.pullCost}"></div>
          </div>
 
          <!--       Currency Conversion  -->
@@ -71,35 +78,36 @@
             <div class="col-12  col-md-3 col-lg-3">
                <label class="label">Currency Conversion</label>
             </div>
-            <div class="input-group col-6 col-sm-8 col-md-2 col-lg-2">
+            <div class="input-group col-12 col-md-2 col-lg-1">
                <div class="input-group-prepend">
-                  <span class="input-group-text" id="pound-sign">£</span>
+                  <div class="input-group-text" id="pound-sign">£</div>
+                  <input type="text" th:field="${calculator.moneyIn}"
+                     class="form-control" required placeholder="0"
+                     aria-label="currency" aria-describedby="pound-sign"
+                     style="text-align: right">
                </div>
-               <input type="text" th:field="${calculator.moneyIn}"
-                  class="form-control" required placeholder="0"
-                  aria-label="currency" aria-describedby="pound-sign"
-                  style="text-align: right">
+               <div class="alert alert-danger"
+                  th:if="${#fields.hasErrors('calculator.moneyIn')}"
+                  th:errors="*{calculator.moneyIn}"></div>
             </div>
-            <span class="alert alert-danger"
-               th:if="${#fields.hasErrors('calculator.moneyIn')}"
-               th:errors="*{calculator.moneyIn}"></span>
             <div class="col-12 col-md-2 col-lg-2">
                <span>gets you</span>
             </div>
-            <div class="col-6 col-sm-8 col-md-2  col-lg-2">
+            <div class="input-group col-12 col-md-3  col-lg-2">
+            <div class="input-group col-12 col-md-3 col-lg-2">
                <input type="text" th:field="${calculator.currencyOut}"
-                  class="form-control" required placeholder="0"
+                  class="form-control col-8" required placeholder="0"
                   style="text-align: center">
             </div>
-            <span class="alert alert-danger"
-               th:if="${#fields.hasErrors('calculator.currencyOut')}"
-               th:errors="*{calculator.currencyOut}"></span>
-            <div class="col-12 col-md-3 col-lg-3">
+               <div class="alert alert-danger"
+                  th:if="${#fields.hasErrors('calculator.currencyOut')}"
+                  th:errors="*{calculator.currencyOut}"></div>
+            </div>
+            <div class="col-12 col-md-2 col-lg-3">
                <span>in-game currency</span>
             </div>
          </div>
-         <div class="form-group row"
-            style="justify-content: center; margin-top: 3em">
+         <div class="form-group row">
             <button type="submit" class="btn btn-primary">Calculate</button>
          </div>
       </form>
